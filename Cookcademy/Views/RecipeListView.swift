@@ -11,6 +11,9 @@ struct RecipeListView: View {
     
     @StateObject var recipeData = RecipeData()
     
+    private let listBackgroundColor = AppColor.background
+    private let listTextColor = AppColor.foreground
+    
     var body: some View {
         NavigationView(){
             List {
@@ -18,7 +21,7 @@ struct RecipeListView: View {
                     NavigationLink(recipe.mainInformation.name){
                         RecipeDetailView(recipe: recipe)
                     }
-                }
+                }.listRowBackground(listBackgroundColor).foregroundColor(listTextColor)
             }.navigationTitle(navigationTitle)
         }
     }
